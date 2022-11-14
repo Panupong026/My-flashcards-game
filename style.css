@@ -1,23 +1,26 @@
 body {
-    background-color: palevioletred
+    background-color: palevioletred;
 }
 
 header {
     text-align: center;
 }
 
-.maincontainer {
-    position: absolute;
-    width: 250px;
+
+.flip-container {
+    width: 100%;
     height: 350px;
     background: none;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card {
-    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
     width: 100%;
     height: 50%;
     transform-style: preserve-3d;
@@ -28,18 +31,21 @@ header {
     transform: rotateY(-180deg);
 }
 
-.front {
-    position: absolute;
+
+
+#zero.front {
+    position: relative;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
     background: yellow;
     color: black;
     text-align: center;
+    border: 1px solid black;
 }
 
-.back {
-    position: absolute;
+#zero.back {
+    position: relative;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
@@ -47,4 +53,74 @@ header {
     color: white;
     text-align: center;
     transform: rotateY(180deg);
+    border: 1px solid black;
+}
+
+#first.front {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: yellow;
+    color: black;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#first.back {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: purple;
+    color: white;
+    text-align: center;
+    transform: rotateY(180deg);
+    border: 1px solid black;
+}
+
+#second.front {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: yellow;
+    color: black;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#second.back {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: purple;
+    color: white;
+    text-align: center;
+    transform: rotateY(180deg);
+    border: 1px solid black;
+}
+
+#third.front {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: yellow;
+    color: black;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#third.back {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: purple;
+    color: white;
+    text-align: center;
+    transform: rotateY(180deg);
+    border: 1px solid black;
 }
