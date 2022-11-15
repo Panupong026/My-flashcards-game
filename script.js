@@ -1,7 +1,7 @@
-const card = document.querySelector("#card")
+const card = document.querySelectorAll("#card")
 
 function flipCard () {
-    card.classList.toggle("flipCard")
+    this.classList.toggle("flipCard")
 }
 
 card.forEach((item) => {
