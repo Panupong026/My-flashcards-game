@@ -66,6 +66,7 @@ card.forEach((item) => {
     item.addEventListener("click", flipCard)
 })
 
+
 // Reset Button
 // resetBtn.addEventListener ("click", () => {
 //     card.forEach((card) => {

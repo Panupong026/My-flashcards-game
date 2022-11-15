@@ -24,7 +24,6 @@ header {
 
 
 .flip-container {
-    /* border: 2px solid red; */
     width: 600px;
     height: 510px;
     display: flex;
@@ -35,20 +34,21 @@ header {
 }
 
 .cardItem {
-    /* border: 2px solid blue; */
     margin: 5px;
     transform-style: preserve-3d;
     transition: all 0.8s ease;
 }
 
+.front:hover {
+    scale: 105%;
+}
+
 .cardItem, img {
     width: 135px;
     height: 240px;
-
 }
 
 .front, .back {
-    /* border: 2px solid black; */
     border-radius: 5px;
     position: absolute;
     backface-visibility: hidden;
