@@ -20,6 +20,7 @@ header {
     font-family: "Mollie-Glaston", 'Times New Roman', Times, serif;
     text-align: center;
     margin: 10px;
+    text-shadow: 1px 1px 2px #000000;
 }
 
 
@@ -41,6 +42,8 @@ header {
 
 .front:hover {
     scale: 105%;
+    box-shadow: 2px 2px 4px #000000;
+    cursor: pointer;
 }
 
 .cardItem, img {
@@ -56,12 +59,33 @@ header {
 
 .back {
     transform: rotateY(180deg);
+    box-shadow: 2px 2px 4px #000000;
 }
-
 
 .flipCard {
     transform: rotateY(-180deg);
 }
 
+.button {
+  font-family: "Mollie-Glaston", 'Times New Roman', Times, serif;
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
 
-    
+.button:hover {
+  background-color: #fff;
+  scale: 105%;
+}

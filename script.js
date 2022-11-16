@@ -3,8 +3,8 @@ const image = document.querySelectorAll("img")
 const resetBtn = document.querySelector("#resetButton")
 
 
-let Flipped = false
 let firstCard, secondCard
+let Flipped = false
 let countCorrect = 0
 let fixBug = false
 
@@ -68,11 +68,15 @@ card.forEach((item) => {
 
 
 // Reset Button
-// resetBtn.addEventListener ("click", () => {
-//     card.forEach((card) => {
-//         this.classList.add("flipCard")
-//         card.addEventListener("click", flipCard)
-//         Flipped = false
-//         console.log("hi")
-//     })
-// })
+resetBtn.addEventListener ("click", () => {
+    card.forEach((card) => {
+        card.classList.remove("flipCard")
+        card.addEventListener("click", flipCard)
+        Flipped = false
+        fixBug = false
+        countCorrect = 0
+        firstCard = null
+        secondCard = null
+    })
+    console.log("hi")
+})
