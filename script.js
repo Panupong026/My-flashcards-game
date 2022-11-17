@@ -48,7 +48,7 @@ function checking() {
     if (firstCard.dataset.picno === secondCard.dataset.picno) {
         firstCard.removeEventListener("click", flipCard)
         secondCard.removeEventListener("click", flipCard)
-        console.log(countCorrect)
+        // console.log(countCorrect)
         countCorrect++
 
         // Game ended
@@ -105,7 +105,7 @@ resetBtn.addEventListener("click", () => {
         nameBoard.style.display = "none"
         location.reload()
     })
-    console.log("hi")
+    // console.log("hi")
 })
 
 // Timer
@@ -122,12 +122,21 @@ function updateCountdown() {
     }
 }
 
+// reload the page
+
+function reload () {
+    location.reload 
+}
+
 function timer () {
     const minutes = Math.floor(time / 60)
     let second = time % 60
     if (minutes < 0 && second < 0) {
-        // alert ("Time ups!!")
+        alert ("Time ups!!")
+        clearInterval (timerCountdown)
+        setInterval(reload, 3000)
         return
+
     }
     else {
         second = second < 10 ? "0" + second : second
@@ -142,7 +151,7 @@ function stopTimer () {
     const minutes = Math.floor(time / 60)
     let second = time % 60
     stopTime = `0${minutes} : ${second}`
-    console.log(stopTime)
+    // console.log(stopTime)
     clearInterval (timerCountdown)
     return 
 }
@@ -151,7 +160,7 @@ function stopTimer () {
 
 submitBtn.addEventListener ("click", function () {
     const name = inputBox.value
-    console.log (name)
+    // console.log (name)
     nameDisappear ()
     scoreBoardAppear ()
     if (name) {
@@ -161,9 +170,9 @@ submitBtn.addEventListener ("click", function () {
 
 for (i = 0; i < localStorage.length; i++) {
     const names = localStorage.key(i)
-    console.log(names)
+    // console.log(names)
     const values = localStorage.getItem(names)
-    console.log(values)
+    // console.log(values)
 
     showNameHere.innerHTML += `${names}<br>`
     showTimeHere.innerHTML += `${values}<br>`
