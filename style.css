@@ -24,15 +24,43 @@ h1 {
 }
 
 table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
     text-align: center;
 }
     
 
 #nav {
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+}
+
+.button {
+  font-family: "Mollie-Glaston", 'Times New Roman', Times, serif;
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  display: static;
+}
+
+.button:hover {
+  background-color: #fff;
+  scale: 105%;
+}
+
+#resetButton{
+    margin-left: 20px;
 }
 
 #countdown {
@@ -65,7 +93,7 @@ table, th, td {
     height: 200px;
     border-radius: 10px;
     border: 2px solid black;
-    background: aquamarine;
+    background: linear-gradient(186deg, rgba(255,129,230,1) 0%, rgba(90,241,85,1) 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -74,18 +102,33 @@ table, th, td {
 }
 
 #scoreBoard {
-    top: -120px; 
+    position: absolute;
+    top: -140px;
     z-index: 2;
     width: 500px;
     height: 500px;
     border-radius: 10px;
     border: 2px solid black;
-    background: aquamarine;
+    background: linear-gradient(186deg, rgba(255,129,230,1) 0%, rgba(90,241,85,1) 100%);
     display: flex; 
     flex-direction: column;
     align-items: center;
-    position: absolute;
     display: none;
+    font-family: "Mollie-Glaston", 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+h2 {
+    margin-top: 10px;
+    font-family: "Mollie-Glaston", 'Times New Roman', Times, serif;
+}
+
+#close {
+    position: absolute;
+    top: 10px;
+    left: 440px;
+    font-family: "Mollie-Glaston", 'Times New Roman', Times, serif;
+    cursor: pointer;
 }
 
 h3 {
@@ -93,6 +136,7 @@ h3 {
     font-family: "Mollie-Glaston", 'Times New Roman', Times, serif;
     text-shadow: 1px 1px #000000;
     margin-bottom: 15px;
+    font-style: italic;
 }
 
 main {
@@ -141,27 +185,3 @@ main {
     transform: rotateY(-180deg);
 }
 
-.button {
-  font-family: "Mollie-Glaston", 'Times New Roman', Times, serif;
-  background-color: #fbeee0;
-  border: 2px solid #422800;
-  border-radius: 30px;
-  box-shadow: #422800 4px 4px 0 0;
-  color: #422800;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 0 18px;
-  line-height: 50px;
-  text-align: center;
-  text-decoration: none;
-  display: static;
-  margin-left: 20px;
-  margin-bottom: 20px;
-}
-
-.button:hover {
-  background-color: #fff;
-  scale: 105%;
-}

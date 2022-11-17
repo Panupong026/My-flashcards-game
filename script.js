@@ -1,3 +1,4 @@
+// Grab element
 const card = document.querySelectorAll(".cardItem")                 // grab all card
 const image = document.querySelectorAll("img")                      // grab image
 const resetBtn = document.querySelector("#resetButton")             // grab reset button
@@ -7,10 +8,10 @@ const inputBox = document.querySelector("#inputname")               // grab inpu
 const submitBtn = document.querySelector("#submitBtn")              // grab submit button
 const scoreBoard = document.querySelector("#scoreBoard")            // grab scoreboard panel
 const scoreBoardBtn = document.querySelector("#showScore")          // grab scoreboard button
-const showNameHere = document.querySelector("#showNameHere")
-const showTimeHere = document.querySelector("#showTimeHere")
+const showNameHere = document.querySelector("#showNameHere")        // grab Name column
+const showTimeHere = document.querySelector("#showTimeHere")        // grab Time column
 
-
+// Declare variable
 let firstCard, secondCard   // Create card for matching card
 let Flipped = false         // For checking that is the card is flipped?
 let countCorrect = 0        // For check that is game over?
@@ -27,9 +28,8 @@ shuffle()
 
 // For flip card function
 function flipCard() {
-    if (fixBug) return
-
-    if (this === firstCard) return
+    if (fixBug) return             // Prevent to pick the card before the latest couple cards is unflipped
+    if (this === firstCard) return // Prevent to pick the same card
 
     this.classList.add("flipCard")
     if (!Flipped) {
@@ -51,9 +51,9 @@ function checking() {
         console.log(countCorrect)
         countCorrect++
 
-        // Display the alert
+        // Game ended
         setTimeout(() => {
-            if (countCorrect === 4) {
+            if (countCorrect === 8) {
                 nameAppear()
             }
         }, 1500)
@@ -70,25 +70,26 @@ function checking() {
     }
 }
 
-// Display input nameboard
-function nameAppear() {
-    nameBoard.style.display = "flex"
-}
-
-
-// Scoreboard
-scoreBoardBtn.addEventListener ("click", scoreBoardAppear)
-
-
-function scoreBoardAppear () {
-    scoreBoard.style.display = "flex"
-    // location.reload()
-}
-
 // Make the card clickable from the function flipcard
 card.forEach((item) => {
     item.addEventListener("click", flipCard)
 })
+
+// Display and vanish input nameboard
+function nameAppear() {
+    nameBoard.style.display = "flex"
+}
+
+function nameDisappear () {
+    nameBoard.style.display = "none"
+}
+
+// Scoreboard
+scoreBoardBtn.addEventListener ("click", scoreBoardAppear)
+
+function scoreBoardAppear () {
+    scoreBoard.style.display = "flex"
+}
 
 // Reset Button
 resetBtn.addEventListener("click", () => {
@@ -102,7 +103,6 @@ resetBtn.addEventListener("click", () => {
         secondCard = null
         shuffle()
         nameBoard.style.display = "none"
-        // clearTimeout(timerCountdown);
         location.reload()
     })
     console.log("hi")
@@ -110,13 +110,11 @@ resetBtn.addEventListener("click", () => {
 
 // Timer
 const startingMins = 2
-
 let time = startingMins * 60
-
 let timerCountdown = setInterval(updateCountdown, 1000)
 
 function updateCountdown() {
-    if (countCorrect === 4) {
+    if (countCorrect === 8) {
         stopTimer ()
     }
     else {
@@ -154,10 +152,10 @@ function stopTimer () {
 submitBtn.addEventListener ("click", function () {
     const name = inputBox.value
     console.log (name)
+    nameDisappear ()
     scoreBoardAppear ()
     if (name) {
         localStorage.setItem(name, stopTime)
-        location.reload()
     }
 })
 
@@ -167,8 +165,8 @@ for (i = 0; i < localStorage.length; i++) {
     const values = localStorage.getItem(names)
     console.log(values)
 
-    showNameHere.innerText(names)
+    showNameHere.innerHTML += `${names}<br>`
     showTimeHere.innerHTML += `${values}<br>`
 }
 
-// localStorage.clear()
+localStorage.clear()
