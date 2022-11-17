@@ -169,4 +169,4 @@ for (i = 0; i < localStorage.length; i++) {
     showTimeHere.innerHTML += `${values}<br>`
 }
 
-localStorage.clear()
+// localStorage.clear()
