@@ -49,7 +49,7 @@ p#countdown {
 
 #alertBox {
     position: absolute;
-    top: 200px; left: 300px;
+    top: 200px; left:425px;
     z-index: 1;
 }
 
@@ -62,6 +62,21 @@ p#countdown {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    /* display: none; */
+}
+
+.scoreBoard {
+    position: absolute;
+    top: -120px; 
+    z-index: 1;
+    width: 500px;
+    height: 500px;
+    border-radius: 10px;
+    border: 2px solid black;
+    background: aquamarine;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     display: none;
 }

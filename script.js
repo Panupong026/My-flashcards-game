@@ -98,7 +98,9 @@ let time = startingMins * 60
 setInterval(updateCountdown, 1000)
 
 function updateCountdown() {
-    if (countCorrect === 8) return
+    if (countCorrect === 8) {
+        return `0${minutes} : ${second}`
+    }
     else {
         const minutes = Math.floor(time / 60)
         let second = time % 60
@@ -113,4 +115,14 @@ function updateCountdown() {
             console.log(time)
         }
     }
+}
+
+function saveName () {
+    var getName = [
+        {
+            localName: document.querySelector("inputname").value,
+            // localTime: 
+        }
+    ]
+    localStorage.setItem("Name", JSON.stringify(getName))
 }
