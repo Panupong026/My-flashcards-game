@@ -1,8 +1,15 @@
-const card = document.querySelectorAll(".cardItem")         // grab all card
-const image = document.querySelectorAll("img")              // grab image
-const resetBtn = document.querySelector("#resetButton")     // grab reset button
-const nameBoard = document.querySelector(".nameBoard")      // grab input name element
-const countDown = document.querySelector("#countdown")      // grab countdown timer
+const card = document.querySelectorAll(".cardItem")                 // grab all card
+const image = document.querySelectorAll("img")                      // grab image
+const resetBtn = document.querySelector("#resetButton")             // grab reset button
+const nameBoard = document.querySelector(".nameBoard")              // grab input name element
+const countDown = document.querySelector("#countdown")              // grab countdown timer
+const inputBox = document.querySelector("#inputname")               // grab input text box
+const submitBtn = document.querySelector("#submitBtn")              // grab submit button
+const scoreBoard = document.querySelector("#scoreBoard")            // grab scoreboard panel
+const scoreBoardBtn = document.querySelector("#showScore")          // grab scoreboard button
+const showNameHere = document.querySelector("#showNameHere")
+const showTimeHere = document.querySelector("#showTimeHere")
+
 
 let firstCard, secondCard   // Create card for matching card
 let Flipped = false         // For checking that is the card is flipped?
@@ -46,9 +53,8 @@ function checking() {
 
         // Display the alert
         setTimeout(() => {
-            if (countCorrect === 8) {
+            if (countCorrect === 4) {
                 nameAppear()
-                alert("Well done")
             }
         }, 1500)
 
@@ -69,6 +75,16 @@ function nameAppear() {
     nameBoard.style.display = "flex"
 }
 
+
+// Scoreboard
+scoreBoardBtn.addEventListener ("click", scoreBoardAppear)
+
+
+function scoreBoardAppear () {
+    scoreBoard.style.display = "flex"
+    // location.reload()
+}
+
 // Make the card clickable from the function flipcard
 card.forEach((item) => {
     item.addEventListener("click", flipCard)
@@ -86,43 +102,73 @@ resetBtn.addEventListener("click", () => {
         secondCard = null
         shuffle()
         nameBoard.style.display = "none"
-        // Waiting for insert the reset timer
+        // clearTimeout(timerCountdown);
+        location.reload()
     })
     console.log("hi")
 })
 
-// add Timer
+// Timer
 const startingMins = 2
+
 let time = startingMins * 60
 
-setInterval(updateCountdown, 1000)
+let timerCountdown = setInterval(updateCountdown, 1000)
 
 function updateCountdown() {
-    if (countCorrect === 8) {
-        return `0${minutes} : ${second}`
+    if (countCorrect === 4) {
+        stopTimer ()
     }
     else {
-        const minutes = Math.floor(time / 60)
-        let second = time % 60
-        if (minutes < 0 && second < 0) {
-            // alert ("Time ups!!")
-            return
-        }
-        else {
-            second = second < 10 ? "0" + second : second
-            countDown.innerHTML = `0${minutes} : ${second}`
-            time--
-            console.log(time)
-        }
+       timer ()
     }
 }
 
-function saveName () {
-    var getName = [
-        {
-            localName: document.querySelector("inputname").value,
-            // localTime: 
-        }
-    ]
-    localStorage.setItem("Name", JSON.stringify(getName))
+function timer () {
+    const minutes = Math.floor(time / 60)
+    let second = time % 60
+    if (minutes < 0 && second < 0) {
+        // alert ("Time ups!!")
+        return
+    }
+    else {
+        second = second < 10 ? "0" + second : second
+        countDown.innerHTML = `0${minutes} : ${second}`
+        time--
+    }
 }
+
+let stopTime = ""
+
+function stopTimer () {
+    const minutes = Math.floor(time / 60)
+    let second = time % 60
+    stopTime = `0${minutes} : ${second}`
+    console.log(stopTime)
+    clearInterval (timerCountdown)
+    return 
+}
+
+// Local storage
+
+submitBtn.addEventListener ("click", function () {
+    const name = inputBox.value
+    console.log (name)
+    scoreBoardAppear ()
+    if (name) {
+        localStorage.setItem(name, stopTime)
+        location.reload()
+    }
+})
+
+for (i = 0; i < localStorage.length; i++) {
+    const names = localStorage.key(i)
+    console.log(names)
+    const values = localStorage.getItem(names)
+    console.log(values)
+
+    showNameHere.innerText(names)
+    showTimeHere.innerHTML += `${values}<br>`
+}
+
+// localStorage.clear()

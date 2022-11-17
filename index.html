@@ -17,6 +17,9 @@
                 <button id="resetButton" class="button" type="reset">Reset</button>
                 <p id="countdown">02 : 00</p>
             </span>
+            <span>
+                <button id="showScore" class="button">ScoreBoard</button>
+            </span>
         </div>
 
     </header>
@@ -27,12 +30,23 @@
                     Please insert your name below for adding in our hall of frame
                 </h3>
                 <span id="insert">
-                    <input type="text" id="inputname" name="firstname" placeholder="Your Name">
-                    <input type="submit" />
+                    <input type="text" id="inputname" placeholder="Your Name">
+                    <button type="button" id="submitBtn">Submit</button>
                 </span>
             </div>
-            <div class="scoreBoard">
-                <h2>Score Board</h2>
+            <div id="scoreBoard">
+                <h2>High score</h2>
+                <span type = "button" id="close" onclick="this.parentElement.style.display ='none'" ; return false;">x</span>
+                <table style="width:100%">
+                    <tr>
+                        <th>Name</th>
+                        <th>Time</th>
+                    </tr>
+                    <tr>
+                        <td id="showNameHere"></td>
+                        <td id="showTimeHere"></td>
+                    </tr>
+                </table>
             </div>
         </div>
         <div class="flip-container">
@@ -79,7 +93,7 @@
                 <img class="back" src="image\pic4.jpg">
             </div>
 
-            <div id="eight" class="cardItem" data-picno="pic5">
+            <!-- <div id="eight" class="cardItem" data-picno="pic5">
                 <img class="front" src="image/back.jpg">
                 <img class="back" src="image\pic5.jpg">
             </div>
@@ -117,7 +131,7 @@
             <div id="fifteen" class="cardItem" data-picno="pic8">
                 <img class="front" src="image/back.jpg">
                 <img class="back" src="image\pic8.jpg">
-            </div>
+            </div> -->
 
         </div>
 

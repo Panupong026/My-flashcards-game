@@ -23,12 +23,19 @@ h1 {
     margin: 10px;
 }
 
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+    
+
 #nav {
     display: flex;
     justify-content: space-between;
 }
 
-p#countdown {
+#countdown {
     position: relative;
     margin-right: 20px;
     font-family: "Mollie-Glaston", 'Times New Roman', Times, serif;
@@ -37,7 +44,6 @@ p#countdown {
     border-radius: 30px;
     box-shadow: #422800 4px 4px 0 0;
     color: #422800;
-    cursor: pointer;
     display: inline-block;
     font-weight: 600;
     font-size: 18px;
@@ -45,6 +51,7 @@ p#countdown {
     line-height: 50px;
     text-align: center;
     text-decoration: none;
+    height: 54px;
 }
 
 #alertBox {
@@ -63,21 +70,21 @@ p#countdown {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* display: none; */
+    display: none;
 }
 
-.scoreBoard {
-    position: absolute;
+#scoreBoard {
     top: -120px; 
-    z-index: 1;
+    z-index: 2;
     width: 500px;
     height: 500px;
     border-radius: 10px;
     border: 2px solid black;
     background: aquamarine;
-    display: flex;
+    display: flex; 
     flex-direction: column;
     align-items: center;
+    position: absolute;
     display: none;
 }
 
@@ -151,6 +158,7 @@ main {
   text-decoration: none;
   display: static;
   margin-left: 20px;
+  margin-bottom: 20px;
 }
 
 .button:hover {
